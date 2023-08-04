@@ -5,34 +5,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>原神启动器</title>
-  <link rel="stylesheet" href="./bootstrap-4.6.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="./bootstrap-4.6.2/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="style.css" />
-  <script src="./bootstrap-4.6.2/js/bootstrap.min.js"> </script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
 <body>
-
-  <div class="left">
-    <ul class="leftNav">
-      <li class="liChild">
-        <img src="./asset/Genshin Impact.jpg" class="select_bg">
-        <button type="button" class="btn btn-dark">添加</button>
-      </li>
-      <li class="liChild">
-        <img src="./asset/Star Rail.jpg" class="select_bg">
-        <button type="button" class="btn btn-dark">添加</button>
-      </li>
-      <li class="liChild">
-        <img src="./asset/favicon.ico" class="select_bg">
-        <button type="button" class="btn btn-dark">添加</button>
-      </li>
-    </ul>
+  <div id="app">
+    <div class="left">
+      <ul class="leftNav">
+        <li class="liChild" v-for="(itme,index) in list" :key="index" @click="clickSwitchStyleLli(index)" :style="{
+          background :itme.select?'rgba(255, 255, 255, .5)':'rgba(0, 0, 0, .1)'}" @mouseover="onHover(true,index)"
+          @mouseout="onHover(false,index)">
+          <img :src="itme.src" class="select_bg">
+          <button v-if="itme.isPath" type="button" class="btn btn-dark" @click="SelectUrl(itme.id)">选择</button>
+          <button v-else type="button" class="btn btn-dark" @click="SelectUrl(itme.id)">添加</button>
+        </li>
+        <!-- <li class="liChild">
+          <img src="./asset/Star Rail.jpg" class="select_bg">
+          <button type="button" class="btn btn-dark" id="Star" @click="SelectUrl('Star')">添加</button>
+        </li>
+        <li class="liChild">
+          <img src="./asset/favicon.ico" class="select_bg">
+          <button type="button" class="btn btn-dark" id="Impact" @click="SelectUrl('Impact')">添加</button>
+        </li> -->
+      </ul>
+    </div>
+    <div class="right">
+      <button type="button" class="btn btn-light" @click="start">游戏启动</button>
+    </div>
   </div>
-  <div class="right">
-    <button type="button" class="btn btn-light">游戏启动</button>
-  </div>
-  <script src="file.js">
-  </script>
+  <!-- <script src="file.js"> </script> -->
+  <script src="index.js"></script>
 </body>
 
 </html>
