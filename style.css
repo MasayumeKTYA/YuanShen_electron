@@ -1,0 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+#app{
+ background: url('./asset/二次元2.jpg') no-repeat center;
+  background-size: cover;
+  /* filter: blur(5px); */
+  display: flex;
+  
+}
+.left {
+  min-height: 770px;
+}
+
+.leftNav {
+  list-style: none;
+  width: 150px;
+  /* background: #000; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 96vh;
+}
+
+.liChild {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, .1);
+  height: 80px;
+  border-radius: 20px;
+  justify-content: space-around;
+  cursor: pointer
+}
+
+.liChild:hover {
+  background: rgba(255, 255, 255, .5);
+}
+
+.select_bg {
+  width: 50px;
+  height: 50px;
+  /* margin-left: 20px; */
+}
+
+.right .btn {
+  margin-left: 800px;
+  margin-top: 600px;
+  width: 200px;
+  height: 50px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, .8);
+  border: 1px solid rgba(255, 255, 255, .8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  /* 阴影效果 */
+}
